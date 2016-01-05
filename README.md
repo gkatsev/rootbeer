@@ -1,4 +1,5 @@
 # rootbeer
+[![Build Status](https://travis-ci.org/gkatsev/rootbeer.svg?branch=master)](https://travis-ci.org/gkatsev/rootbeer)
 
 Streamy module that transforms a JSON stream into scss syntax Sass.
 
