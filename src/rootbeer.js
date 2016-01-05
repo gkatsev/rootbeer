@@ -10,7 +10,7 @@ let DEFAULTS = {
 };
 
 function rootbeer(options) {
-  let options = assign({}, DEFAULTS, options);
+  let settings = assign({}, DEFAULTS, options);
 
   return through(function(chunk, enc, callback) {
     let jsValue;
@@ -21,7 +21,7 @@ function rootbeer(options) {
       return callback(err);
     }
     let sassString = jsToSassString(jsValue);
-    sassString = options.prefix + sassString + options.suffix;
+    sassString = settings.prefix + sassString + settings.suffix;
     this.push(sassString);
     callback();
   });

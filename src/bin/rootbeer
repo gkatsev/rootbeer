@@ -19,35 +19,37 @@ let argv = minimist(process.argv.slice(2), {
     default: { i: '-', o: '-' }
 });
 
-if (argv.help) return showHelp(0);
-
-let input;
-if (argv.infile === '-') {
-  input = process.stdin;
+if (argv.help) {
+  showHelp(0);
 } else {
-  if (path.extname(argv.infile) === '.js') {
-    input = new Readable();
-
-    let jsModule = require(path.join(process.cwd(), argv.infile));
-    let jsonString = JSON.stringify(jsModule);
-
-    input.push(jsonString);
-    input.push(null);
+  let input;
+  if (argv.infile === '-') {
+    input = process.stdin;
   } else {
-    input = fs.createReadStream(argv.infile);
+    if (path.extname(argv.infile) === '.js') {
+      input = new Readable();
+
+      let jsModule = require(path.join(process.cwd(), argv.infile));
+      let jsonString = JSON.stringify(jsModule);
+
+      input.push(jsonString);
+      input.push(null);
+    } else {
+      input = fs.createReadStream(argv.infile);
+    }
   }
+
+  let output = argv.outfile === '-'
+    ? process.stdout
+    : fs.createWriteStream(argv.outfile);
+
+  let opts = {};
+
+  if (argv.prefix) opts.prefix = argv.prefix;
+  if (argv.suffix) opts.suffix = argv.suffix;
+
+  input.pipe(rootbeer(opts)).pipe(output);
 }
-
-let output = argv.outfile === '-'
-  ? process.stdout
-  : fs.createWriteStream(argv.outfile);
-
-let opts = {};
-
-if (argv.prefix) opts.prefix = argv.prefix;
-if (argv.suffix) opts.suffix = argv.suffix;
-
-input.pipe(rootbeer(opts)).pipe(output);
 
 function showHelp(code) {
   let r = fs.createReadStream(path.join(__dirname, '../../usage.txt'));
