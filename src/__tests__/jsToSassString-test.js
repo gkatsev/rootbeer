@@ -41,6 +41,11 @@ describe('JS to Sass', function() {
     expect(jsToSassString([1, 2, 3])).to.equal('(1, 2, 3)');
   });
 
+  it('should work with escaped quotes and sass operators', function() {
+    let s = "foo=\"bar\",baz=\"*null\"";
+    expect(jsToSassString(s)).to.equal("\"foo=\\\"bar\\\",baz=\\\"*null\\\"\"");
+  });
+
   it('should convert objects to maps, with indentation', function() {
     var obj = {
       foo: 'bar',

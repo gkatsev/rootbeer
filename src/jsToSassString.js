@@ -13,7 +13,7 @@ function jsToSassString(value) {
       case 'number':
         return value.toString();
       case 'string':
-        return `"${value}"`;
+	return `"${strEsc(value)}"`;
       case 'object':
         if (isPlainObject(value)) {
           indentLevel += 1;
@@ -66,6 +66,10 @@ function isNull(value) {
 
 function isNotUndefined(value) {
   return typeof value !== 'undefined';
+}
+
+function strEsc(value) {
+  return value.replace(/"/g, "\\\"");
 }
 
 export default jsToSassString;
