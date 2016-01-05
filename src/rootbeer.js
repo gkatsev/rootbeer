@@ -9,7 +9,7 @@ let DEFAULTS = {
   suffix: ';',
 };
 
-function jsonSass(options) {
+function rootbeer(options) {
   let options = assign({}, DEFAULTS, options);
 
   return through(function(chunk, enc, callback) {
@@ -27,5 +27,5 @@ function jsonSass(options) {
   });
 }
 
-jsonSass.convertJs = jsToSassString;
-export default jsonSass;
+rootbeer.convertJs = jsToSassString;
+export default rootbeer;
