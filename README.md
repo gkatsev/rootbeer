@@ -32,7 +32,7 @@ Example source file `theme.json`:
 From the command-line:
 
 ```
-$ json-sass -i theme.json -o theme.scss -p "\$theme: "
+$ rootbeer -i theme.json -o theme.scss -p "\$theme: "
 ```
 
 Output `theme.scss`:
@@ -67,7 +67,7 @@ Or with gulp using [vinyl-source-stream](https://github.com/hughsk/vinyl-source-
 
 ```javascript
 var gulp = require('gulp');
-var rootbeer = require('json-sass');
+var rootbeer = require('rootbeer');
 var source = require('vinyl-source-stream');
 var rename = require('gulp-rename');
 
