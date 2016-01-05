@@ -9,13 +9,13 @@ build: js
 test: build
 	$(MOCHA_CMD) lib/**/__tests__/*-test.js --require ./lib/test-init.js
 
-js: $(LIB_JS) lib/bin/json-sass
+js: $(LIB_JS) lib/bin/rootbeer
 
 $(LIB_JS): lib/%.js: src/%.js
 	mkdir -p $(dir $@) && $(BABEL_CMD) $< -o $@ --experimental
 
-lib/bin/json-sass:
-	mkdir -p $(dir $@) && $(BABEL_CMD) src/bin/json-sass -o $@ --experimental
+lib/bin/rootbeer:
+	mkdir -p $(dir $@) && $(BABEL_CMD) src/bin/rootbeer -o $@ --experimental
 
 clean:
 	rm -rf lib/
