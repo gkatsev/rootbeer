@@ -1,6 +1,6 @@
 {
   "name": "rootbeer",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Transform JSON into scss syntax Sass.",
   "main": "lib/rootbeer.js",
   "bin": "lib/bin/rootbeer",
