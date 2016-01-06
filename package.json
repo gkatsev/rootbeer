@@ -6,7 +6,7 @@
   "bin": "lib/bin/rootbeer",
   "scripts": {
     "clean": "rm -rf lib/",
-    "prebuild": "mkdir -p lib/{bin,tests}",
+    "prebuild": "mkdir -p lib lib/bin lib/tests",
     "build": "babel src -d lib",
     "postbuild": "babel src/bin/rootbeer -o lib/bin/rootbeer",
     "watch": "babel -w src -d lib &",
