@@ -5,6 +5,7 @@
 let rootbeer = require('../rootbeer');
 let fs = require('fs');
 let path = require('path');
+let tsmlb = require('tsmlb');
 let minimist = require('minimist');
 import { Readable } from 'stream';
 
@@ -52,9 +53,15 @@ if (argv.help) {
 }
 
 function showHelp(code) {
-  let r = fs.createReadStream(path.join(__dirname, '../../usage.txt'));
-  r.on('end', function () {
-    if (code) process.exit(code);
-  });
-  r.pipe(process.stdout);
+  console.log(tsmlb`
+    usage: rootbeer {OPTIONS}
+
+      -i, --infile   Read input from a file. Default: "-" (stdin)
+      -o, --outfile  Write output to a file. Default: "-" (stdout)
+      -p, --prefix   Add some text to the beginning.
+      -s, --suffix   Add some text to the end. Default: ";"
+      -h, --help     Show this message.
+  `);
+
+  if (code) process.exit(code);
 }
