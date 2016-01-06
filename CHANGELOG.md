@@ -1,5 +1,9 @@
 # rootbeer CHANGELOG
 
+# 1.0.4
+* swap Makefile for npm scripts
+* add npm script to watch and rebuild on change
+
 # 1.0.3
 * add repo field to package.json
 * update dependencies
