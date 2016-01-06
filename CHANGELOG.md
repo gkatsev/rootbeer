@@ -1,5 +1,8 @@
 # rootbeer CHANGELOG
 
+# 1.0.5
+* change mkdir -p to work on travis and fix build
+
 # 1.0.4
 * swap Makefile for npm scripts
 * add npm script to watch and rebuild on change
