@@ -5,8 +5,12 @@
   "main": "lib/rootbeer.js",
   "bin": "lib/bin/rootbeer",
   "scripts": {
-    "test": "make test",
-    "prepublish": "npm test"
+    "clean": "rm -rf lib/",
+    "prebuild": "mkdir -p lib/{bin,tests}",
+    "build": "babel src -d lib",
+    "postbuild": "babel src/bin/rootbeer -o lib/bin/rootbeer",
+    "test": "babel-node ./node_modules/.bin/mocha lib/**/tests/*-test.js --require lib/test-init.js",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "sass",
