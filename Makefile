@@ -7,7 +7,7 @@ LIB_JS = $(patsubst src/%.js,lib/%.js,$(SRC_JS))
 build: js
 
 test: build
-	$(MOCHA_CMD) lib/**/__tests__/*-test.js --require ./lib/test-init.js
+	$(MOCHA_CMD) lib/**/tests/*-test.js --require ./lib/test-init.js
 
 js: $(LIB_JS) lib/bin/rootbeer
 
