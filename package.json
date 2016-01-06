@@ -18,15 +18,14 @@
     "url": "https://github.com/gkatsev/rootbeer"
   },
   "dependencies": {
-    "babel": "~4.1.0",
-    "lodash": "~2.4.1",
-    "lodash-node": "~2.4.1",
-    "minimist": "~1.1.0",
-    "object-assign": "~2.0.0",
-    "through2": "~0.6.3"
+    "lodash": "^3.10.1",
+    "minimist": "^1.2.0",
+    "object-assign": "^4.0.1",
+    "through2": "^2.0.0"
   },
   "devDependencies": {
-    "chai": "~1.9.2",
-    "mocha": "~2.0.1"
+    "babel": "^5.8.34",
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
   }
 }
