@@ -1,5 +1,12 @@
 # rootbeer CHANGELOG
 
+# 1.0.3
+* add repo field to package.json
+* update dependencies
+* rename `src/__tests__` to `src/tests`
+* get rid of `usage.txt`, use tsmlb to print it out
+* add CHANGELOG automatically in `npm version`
+
 # 1.0.2
 * escape double quotes inside strings
 
