@@ -9,6 +9,8 @@
     "prebuild": "mkdir -p lib/{bin,tests}",
     "build": "babel src -d lib",
     "postbuild": "babel src/bin/rootbeer -o lib/bin/rootbeer",
+    "watch": "babel -w src -d lib &",
+    "postwatch": "babel -w src/bin/rootbeer -o lib/bin/rootbeer & wait",
     "test": "babel-node ./node_modules/.bin/mocha lib/**/tests/*-test.js --require lib/test-init.js",
     "prepublish": "npm run build"
   },
