@@ -13,7 +13,7 @@
     "postwatch": "babel -w src/bin/rootbeer -o lib/bin/rootbeer & wait",
     "pretest": "npm run build",
     "test": "mocha lib/**/tests/*-test.js --require lib/test-init.js",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "sass",
