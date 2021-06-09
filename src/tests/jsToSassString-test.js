@@ -18,13 +18,12 @@ describe('JS to Sass', function() {
 
   // https://sass-lang.com/documentation/values/colors
   it('should handle colors', function() {
-    expect(jsToSassString('foo')).to.equal('"foo"');
-    expect(jsToSassString('#f2ece4')).to.equal('"#f2ece4"');
-    expect(jsToSassString('#b37399aa')).to.equal('"#b37399aa"');
-    expect(jsToSassString('rgb(204, 102, 153)')).to.equal('"rgb(204, 102, 153)"');
-    expect(jsToSassString('rgba(107, 133, 127, 0.8)')).to.equal('"rgba(107, 133, 127, 0.8)"');
-    expect(jsToSassString('hsl(228, 7%, 86%)')).to.equal('"hsl(228, 7%, 86%)"');
-    expect(jsToSassString('hsla(20, 20%, 85%, 0.7)')).to.equal('"hsla(20, 20%, 85%, 0.7)"');
+    expect(jsToSassString('#f2ece4')).to.equal('#f2ece4');
+    expect(jsToSassString('#b37399aa')).to.equal('#b37399aa');
+    expect(jsToSassString('rgb(204, 102, 153)')).to.equal('rgb(204, 102, 153)');
+    expect(jsToSassString('rgba(107, 133, 127, 0.8)')).to.equal('rgba(107, 133, 127, 0.8)');
+    expect(jsToSassString('hsl(228, 7%, 86%)')).to.equal('hsl(228, 7%, 86%)');
+    expect(jsToSassString('hsla(20, 20%, 85%, 0.7)')).to.equal('hsla(20, 20%, 85%, 0.7)');
   });
 
   it('should handle booleans', function() {
