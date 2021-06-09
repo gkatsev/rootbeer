@@ -1,6 +1,7 @@
 'use strict';
 
 import isPlainObject from 'lodash.isplainobject';
+import isColor from './is-color.js';
 let { isArray } = Array;
 
 function jsToSassString(value) {
@@ -13,7 +14,7 @@ function jsToSassString(value) {
       case 'number':
         return value.toString();
       case 'string':
-        return `"${strEsc(value)}"`;
+        return quoteString(strEsc(value));
       case 'object':
         if (isPlainObject(value)) {
           indentLevel += 1;
@@ -54,6 +55,14 @@ function jsToSassString(value) {
   }
 
   return _jsToSassString(value);
+}
+
+function quoteString(value) {
+  if (isColor(value)) {
+    return value;
+  }
+
+  return `"${value}"`;
 }
 
 function indentsToSpaces(indentCount) {
