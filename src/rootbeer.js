@@ -2,7 +2,7 @@
 
 import through from 'through2';
 import jsToSassString from './jsToSassString';
-import assign from 'object-assign';
+import assign from 'object.assign';
 
 let DEFAULTS = {
   prefix: '',
