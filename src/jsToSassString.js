@@ -13,7 +13,7 @@ function jsToSassString(value) {
       case 'number':
         return value.toString();
       case 'string':
-	return `"${strEsc(value)}"`;
+        return `"${strEsc(value)}"`;
       case 'object':
         if (isPlainObject(value)) {
           indentLevel += 1;
@@ -40,9 +40,9 @@ function jsToSassString(value) {
         }
         else if (isArray(value)) {
           let sassVals = value.map((v) => isNotUndefined(v) ?
-					  _jsToSassString(v, indentLevel) :
-					  null)
-			      .filter((v) => v !== null);
+            _jsToSassString(v, indentLevel) :
+            null)
+            .filter((v) => v !== null);
 
           return '(' + sassVals.join(', ') + ')';
         }
