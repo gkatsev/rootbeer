@@ -1,3 +1,3 @@
 export default function(value) {
-  return false
+  return (/^(?:#|rgba?|hsla?)/).test(value);
 }
