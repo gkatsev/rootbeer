@@ -11,7 +11,8 @@
     "postbuild": "babel src/bin/rootbeer -o lib/bin/rootbeer",
     "watch": "babel -w src -d lib &",
     "postwatch": "babel -w src/bin/rootbeer -o lib/bin/rootbeer & wait",
-    "test": "babel-node ./node_modules/.bin/mocha lib/**/tests/*-test.js --require lib/test-init.js",
+    "pretest": "npm run build",
+    "test": "mocha lib/**/tests/*-test.js --require lib/test-init.js",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -31,7 +32,10 @@
     "tsmlb": "^1.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.34",
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.4",
     "chai": "^3.4.1",
     "mocha": "^2.3.4"
   }
