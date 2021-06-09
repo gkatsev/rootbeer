@@ -18,6 +18,10 @@ describe('JS to Sass', function() {
 
   // https://sass-lang.com/documentation/values/colors
   it('should handle colors', function() {
+    expect(jsToSassString('papayawhip')).to.equal('papayawhip');
+    expect(jsToSassString('lightgoldenrodyellow')).to.equal('lightgoldenrodyellow');
+    expect(jsToSassString('gray')).to.equal('gray');
+    expect(jsToSassString('grey')).to.equal('grey');
     expect(jsToSassString('#f2ece4')).to.equal('#f2ece4');
     expect(jsToSassString('#b37399aa')).to.equal('#b37399aa');
     expect(jsToSassString('rgb(204, 102, 153)')).to.equal('rgb(204, 102, 153)');
